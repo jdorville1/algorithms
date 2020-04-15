@@ -79,7 +79,7 @@ class TestSegmentTree(unittest.TestCase):
         :param upd: updates to test
         """
         segment_tree = SegmentTree(arr, fnc)
-        for index, value in upd.items():
+        for index, value in upd._items():
             arr[index] = value
             segment_tree.update(index, value)
             self.__test_segments_helper(segment_tree, fnc, arr)
