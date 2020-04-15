@@ -144,7 +144,7 @@ class TestOrderedStack(unittest.TestCase):
         "bottom - > 1 3 4 6 "
         self.assertEqual(6, stack.pop())
         self.assertEqual(4, stack.peek())
-        self.assertEqual(3, stack.size())
+        self.assertEqual(3, stack._size())
 
 
 if __name__ == "__main__":

@@ -95,11 +95,11 @@ class TestPriorityQueue(unittest.TestCase):
 
     def test_PriorityQueue(self):
         queue = PriorityQueue([3, 4, 1, 6])
-        self.assertEqual(4, queue.size())
+        self.assertEqual(4, queue._size())
         self.assertEqual(1, queue.pop())
-        self.assertEqual(3, queue.size())
+        self.assertEqual(3, queue._size())
         queue.push(2)
-        self.assertEqual(4, queue.size())
+        self.assertEqual(4, queue._size())
         self.assertEqual(2, queue.pop())
 
 

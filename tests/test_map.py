@@ -79,10 +79,10 @@ class TestHashTable(unittest.TestCase):
 
     def test_resizable_hash_table(self):
         m = ResizableHashTable()
-        self.assertEqual(ResizableHashTable.MIN_SIZE, m.size)
+        self.assertEqual(ResizableHashTable.MIN_SIZE, m._size)
         for i in range(ResizableHashTable.MIN_SIZE):
             m.put(i, 'foo')
-        self.assertEqual(ResizableHashTable.MIN_SIZE * 2, m.size)
+        self.assertEqual(ResizableHashTable.MIN_SIZE * 2, m._size)
         self.assertEqual('foo', m.get(1))
         self.assertEqual('foo', m.get(3))
         self.assertEqual('foo', m.get(ResizableHashTable.MIN_SIZE - 1))
