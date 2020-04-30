@@ -9,6 +9,7 @@ def quick_sort(arr, simulation=False):
     arr, _ = quick_sort_recur(arr, 0, len(arr) - 1, iteration, simulation)
     return arr
 
+
 def quick_sort_recur(arr, first, last, iteration, simulation):
     if first < last:
         pos = partition(arr, first, last)
@@ -21,6 +22,7 @@ def quick_sort_recur(arr, first, last, iteration, simulation):
         _, iteration = quick_sort_recur(arr, pos + 1, last, iteration, simulation)
 
     return arr, iteration
+
 
 def partition(arr, first, last):
     wall = first
