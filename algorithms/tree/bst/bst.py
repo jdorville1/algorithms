@@ -87,11 +87,46 @@ class BST(object):
             self.preorder(root.left)
             self.preorder(root.right)
 
+    def preorder_iterative(self, root) -> [int]:
+        if not root:
+            return []
+
+        values, stack = [], [root]
+
+        while stack:
+            node = stack.pop()
+            values.append(node.val)  # make sure to grab VAL not node itself.
+
+            if node.right:  # we do right first because if there's both a right and left, left will be on top of stack.
+                stack.append(node.right)
+            if node.left:
+                stack.append(node.left)
+
+        return values
+
     def inorder(self, root):
         if root:
             self.inorder(root.left)
             print(str(root.data), end = ' ')
             self.inorder(root.right)
+
+    def inorder_iterative(self, root):
+        if root is None:
+            return []
+
+        stack, values = [], []
+        current = root
+
+        while stack or current:
+            while current:  # go as far left as you can to find the lowest value
+                stack.append(current)  # append the values in the meantime so they can be printed later
+                current = current.left
+
+            current = stack.pop()  # once we've reached the leftmost leaf, pop the previous value.
+            values.append(current.val)  # add that value to the values list.
+            current = current.right  # take care of the right child now
+
+        return values
 
     def postorder(self, root):
         if root:
